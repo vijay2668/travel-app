@@ -13,8 +13,8 @@ import User from "./models/user.js";
 app.use(cors());
 app.use(express.json());
 
-const mongoUri =
-  "mongodb+srv://vijayrathod2668:7Zqm3tarn5vhFFsC@cluster0.7f1mcw0.mongodb.net/";
+const mongoUri = process.env.MONGODB_URI;
+
 mongoose
   .connect(mongoUri)
   .then(() => {
