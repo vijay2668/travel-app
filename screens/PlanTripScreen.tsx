@@ -379,7 +379,7 @@ const PlanTripScreen = () => {
             );
 
             const placeWithDetails = response.data.placeWithDetails;
-            console.log("placeWithDetails", placeWithDetails);
+            // console.log("placeWithDetails", placeWithDetails);
 
             if (!placeWithDetails) {
               throw new Error(`No details found for ${place.name}`);
@@ -387,7 +387,7 @@ const PlanTripScreen = () => {
 
             return {
               id: `ai-${place.name.replace(/\s/g, "-").toLowerCase()}`,
-              placeWithDetails
+              ...placeWithDetails
             };
           } catch (err: any) {
             console.log(
@@ -418,6 +418,7 @@ const PlanTripScreen = () => {
         })
       );
 
+      console.log("placesWithDetails", placesWithDetails)
       setAiPlaces(placesWithDetails);
       setModalMode("ai");
       setModalVisible(true);

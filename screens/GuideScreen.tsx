@@ -111,7 +111,7 @@ const GuideScreen = () => {
             }
             style={styles.card}
             key={place.id}
-            className="mx-4 mt-4 rounded-xl overflow-hidden shadow-sm"
+            className="mx-4 mt-4 rounded-xl overflow-hidden border border-gray-200"
           >
             <ImageBackground
               className="w-full h-full"
@@ -130,7 +130,7 @@ const GuideScreen = () => {
               </View>
             </ImageBackground>
 
-            <View className="bg-white p-4">
+            <View className="p-4">
               <View className="flex-row items-center mb-2">
                 <Ionicons name="location-outline" size={16} color="#FF5722" />
                 <Text className="text-gray-800 text-sm font-medium ml-2">

@@ -57,14 +57,14 @@ const FeaturedGuides = () => {
         {guides?.map((guide, index) => (
           <View
             key={index}
-            className="w-64 mr-4 rounded-2xl overflow-hidden bg-white shadow-lg"
+            className="w-64 mr-4 rounded-2xl overflow-hidden bg-white border border-gray-200"
           >
             <Image
               className="w-full h-40"
               resizeMode="cover"
               source={{ uri: guide.image }}
             />
-            <View className="py-3">
+            <View className="py-2 px-4">
               <Text className="text-base font-bold text-gray-900">
                 {guide.place}
               </Text>
