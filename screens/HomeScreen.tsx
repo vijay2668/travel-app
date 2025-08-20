@@ -1,3 +1,6 @@
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import React from "react";
 import {
   Image,
   ScrollView,
@@ -6,21 +9,11 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import React from "react";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FeaturedGuides from "../components/FeaturedGuides";
 import PopularDestinations from "../components/PopularDestinations";
 import WeekendTrips from "../components/WeekendTrips";
-
-export type HomeStackParamList = {
-  HomeMain: undefined;
-  NewTrip: undefined;
-  PlanTrip: { trip: any };
-  AIChat: undefined;
-  MapScreen: undefined;
-};
+import { HomeStackParamList } from "../navigation/HomeStack";
 
 export type TabNavigatorParamList = {
   Home: undefined;
@@ -33,7 +26,7 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<
 >;
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeScreenNavigationProp>();
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -68,7 +61,10 @@ const HomeScreen = () => {
             <Text className="text-white text-4xl font-bold text-center px-6">
               Plan your next adventure
             </Text>
-            <TouchableOpacity className="bg-orange-500 px-6 py-2 rounded-full mt-4">
+            <TouchableOpacity
+              onPress={() => navigation.navigate("NewTrip")}
+              className="bg-orange-500 px-6 py-2 rounded-full mt-4"
+            >
               <Text className="text-white font-semibold text-base">
                 Create new trip plan
               </Text>
@@ -83,9 +79,7 @@ const HomeScreen = () => {
           <FeaturedGuides />
         </View>
         <View className="p-4">
-          <Text className="text-2xl font-semibold mb-4">
-            Weekend Trips
-          </Text>
+          <Text className="text-2xl font-semibold mb-4">Weekend Trips</Text>
           <WeekendTrips />
         </View>
         <View className="p-4">
